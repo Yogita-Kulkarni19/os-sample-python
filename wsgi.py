@@ -1,9 +1,10 @@
 from flask import Flask
-application = Flask(__name__)
+from sys import version
 
-@application.route("/")
-def hello():
-    return "Hello World!"
+app = Flask(__name__)
 
-if __name__ == "__main__":
-    application.run()
+@app.route("/test")
+def index():
+    return f"Hello uWSGI from python version: {version}\n"
+
+application = app
